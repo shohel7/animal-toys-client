@@ -37,7 +37,7 @@ const AddToys = () => {
             {errors.exampleRequired && <span>This field is required</span>}
             <select
               {...register("subCategory")}
-              className="rounded-lg mr-3 md:px-3 py-3 text-slate-400 focus:outline-none"
+              className="rounded-lg w-[320px] md:w-full border py-3 text-slate-400 focus:outline-none"
             >
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
@@ -81,7 +81,7 @@ const AddToys = () => {
           <div div className="flex justify-center mt-7">
             <input
               type="submit"
-              className="py-2.5 md:py-3 mr-3 w-[325px] md:w-1/2 bg-[#F29D7E] hover:bg-[#ec8a67] transition-all transition-duration-200 ease-in-out rounded-md font-bold text-white text-lg uppercase"
+              className="py-2.5 md:py-3 mr-3 w-[325px] md:w-1/2 bg-[#F29D7E] hover:bg-[#ec8a67] transition-all transition-duration-200 ease-in-out rounded-md font-bold text-white text-lg uppercase cursor-pointer"
               value="Added Toy"
             />
           </div>
