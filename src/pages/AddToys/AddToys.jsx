@@ -22,60 +22,61 @@ const AddToys = () => {
               className="input w-full max-w-xs border focus:outline-none"
               {...register("toyName", { required: true })}
               placeholder="Toy name"
+              required
             />
             <input
               className="input w-full max-w-xs border focus:outline-none"
               {...register("sellerName", { required: true })}
               placeholder="Seller Name"
+              required
             />
-            {errors.exampleRequired && <span>This field is required</span>}
             <input
               className="input w-full max-w-xs border focus:outline-none"
               {...register("sellerEmail", { required: true })}
               placeholder="Seller Email"
+              required
             />
-            {errors.exampleRequired && <span>This field is required</span>}
             <select
               {...register("subCategory")}
               className="rounded-lg w-[320px] md:w-full border py-3 text-slate-400 focus:outline-none"
+              required
             >
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
               <option value="teddyBear">Teddy Bear</option>
             </select>
-            {errors.exampleRequired && <span>This field is required</span>}
             <input
               className="input w-full max-w-xs border focus:outline-none"
               {...register("price", { required: true })}
               placeholder="Price"
+              required
             />
-            {errors.exampleRequired && <span>This field is required</span>}
             <input
               className="input w-full max-w-xs border focus:outline-none"
               {...register("rating", { required: true })}
               placeholder="Rating"
+              required
             />
-            {errors.exampleRequired && <span>This field is required</span>}
             <input
               className="input w-full max-w-xs border focus:outline-none"
               {...register("availableQuantity", { required: true })}
               placeholder="Available Quantity"
+              required
             />
-            {errors.exampleRequired && <span>This field is required</span>}
             <input
               className="input w-full max-w-xs border focus:outline-none"
               {...register("imageUrl", { required: true })}
               placeholder="Image Url"
+              required
             />
-            {errors.exampleRequired && <span>This field is required</span>}
           </div>
           <div className="w-full text-center mt-7">
             <textarea
               className="input mr-3 w-[325px] md:w-full max-w-[595px] border focus:outline-none pt-2.5 h-28"
               {...register("description", { required: true })}
               placeholder="Details Description"
+              required
             />
-            {errors.exampleRequired && <span>This field is required</span>}
           </div>
 
           <div div className="flex justify-center mt-7">

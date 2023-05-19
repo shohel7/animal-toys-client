@@ -25,19 +25,15 @@ const Login = () => {
                 className="input w-full border focus:outline-none"
                 {...register("email", { required: true })}
                 placeholder="Enter your email"
+                required
               />
-              {errors.email && (
-                <span className="text-red-500">This field is required</span>
-              )}
               <input
                 type="password"
                 className="input w-full border focus:outline-none"
                 {...register("password", { required: true })}
                 placeholder="Enter your password"
+                required
               />
-              {errors.password && (
-                <span className="text-red-500">This field is required</span>
-              )}
               <a
                 href="#"
                 className="label-text-alt link link-hover text-center text-[#345A5B]"
