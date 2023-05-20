@@ -75,7 +75,10 @@ const MyToys = () => {
                   {toy?.description.slice(0, 50) + " ..."}
                 </td>
                 <td className="flex gap-3 items-center">
-                  <Link className="bg-[#245A5B] hover:bg-emerald-900 transition-all duration-200 ease-in-out py-2.5 px-3 rounded-lg text-white uppercase font-medium">
+                  <Link
+                    to={`/updatedToys/${toy?._id}`}
+                    className="bg-[#245A5B] hover:bg-emerald-900 transition-all duration-200 ease-in-out py-2.5 px-3 rounded-lg text-white uppercase font-medium"
+                  >
                     <FaEdit />
                   </Link>
                   <button
