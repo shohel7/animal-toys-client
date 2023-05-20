@@ -1,5 +1,6 @@
 import React from "react";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaRegStar, FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 import { Link, useLoaderData } from "react-router-dom";
 
 const ToyDetails = () => {
@@ -52,13 +53,21 @@ const ToyDetails = () => {
             </p>
             <p>
               {" "}
-              <span className="font-bold">Available Quantity:</span>
+              <span className="font-bold">Available Quantity: </span>
               {availableQuantity}
             </p>
-            <p>
-              {" "}
-              <span className="font-bold">Rating:</span> {rating}
-            </p>
+            <span className="flex items-center gap-3">
+              <span className="font-bold">Rating:</span>
+              <Rating
+                className="mt-2.5"
+                placeholderRating={rating}
+                readonly
+                emptySymbol={<FaRegStar className="text-lg" />}
+                placeholderSymbol={<FaStar className="text-warning text-lg" />}
+                fullSymbol={<FaStar className="text-lg" />}
+              />
+              <span className="font-bold">({rating})</span>
+            </span>
           </div>
         </div>
       </div>
