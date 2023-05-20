@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -16,6 +17,36 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, []);
+
+  const handleDeleteToy = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure delete?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        fetch(`http://localhost:5000/myToys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your toy has been deleted.", "success");
+              const remaining = myToys.filter((toy) => toy._id !== id);
+              console.log(remaining);
+              setMyToys(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <div className="px-5 md:px-5 lg:max-w-[1230px] mx-auto">
       <div className="overflow-x-auto mt-8">
@@ -47,7 +78,10 @@ const MyToys = () => {
                   <Link className="bg-[#245A5B] hover:bg-emerald-900 transition-all duration-200 ease-in-out py-2.5 px-3 rounded-lg text-white uppercase font-medium">
                     <FaEdit />
                   </Link>
-                  <button className="bg-[#F29D7E] hover:bg-[#ec8a67] transition-all duration-200 ease-in-out py-2.5 px-3 rounded-lg text-white uppercase font-medium">
+                  <button
+                    onClick={() => handleDeleteToy(toy?._id)}
+                    className="bg-[#F29D7E] hover:bg-[#ec8a67] transition-all duration-200 ease-in-out py-2.5 px-3 rounded-lg text-white uppercase font-medium"
+                  >
                     <FaTrashAlt />
                   </button>
                 </td>
