@@ -1,16 +1,70 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
+  const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || "/";
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data, event) => {
+    console.log(data);
+    const email = data.email;
+    const password = data.password;
+
+    setError("");
+    setSuccess("");
+    signIn(email, password)
+      .then((result) => {
+        // Signed in
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        setSuccess("User loggedIn successfully");
+        event.target.reset();
+        // navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setError(errorMessage);
+      });
+  };
+
+  // google signIn
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(loggedUser);
+        navigate("/");
+      })
+      .catch((error) => console.log(error.message));
+  };
+
+  // github signIn
+  const handleGithubSignIn = () => {
+    githubSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(loggedUser);
+        navigate("/");
+      })
+      .catch((error) => console.log(error.message));
+  };
 
   return (
     <div>
@@ -45,7 +99,7 @@ const Login = () => {
             <div div className="flex justify-center mt-5">
               <input
                 type="submit"
-                className="py-2.5 md:py-3 w-3/4 md:w-1/2 bg-[#F29D7E] hover:bg-[#ec8a67] transition-all transition-duration-200 ease-in-out rounded-md font-bold text-white text-lg uppercase"
+                className="py-2.5 md:py-3 w-3/4 md:w-1/2 bg-[#F29D7E] hover:bg-[#ec8a67] transition-all transition-duration-200 ease-in-out rounded-md font-bold text-white text-lg uppercase cursor-pointer"
                 value="Login"
               />
             </div>
@@ -56,13 +110,17 @@ const Login = () => {
               Register
             </Link>
           </p>
+          <div>
+            <p className="text-center text-red-500">{error}</p>
+            <p className="text-center text-green-500">{success}</p>
+          </div>
           <div className="w-3/4 md:w-1/2 mx-auto">
             <div className="divider">OR</div>
             <span className="grid grid-cols-2 gap-5">
-              <button className="btn btn-outline">
+              <button onClick={handleGoogleSignIn} className="btn btn-outline">
                 Google <FaGoogle className="ml-3 text-base" />
               </button>
-              <button className="btn btn-outline">
+              <button onClick={handleGithubSignIn} className="btn btn-outline">
                 GitHub <FaGithub className="ml-3 text-base" />
               </button>
             </span>
