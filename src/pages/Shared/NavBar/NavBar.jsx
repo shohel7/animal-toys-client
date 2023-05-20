@@ -17,8 +17,9 @@ const NavBar = () => {
       .then((result) => {})
       .catch((error) => console.log(error.message));
   };
+  // sticky top-0 z-30 w-full shadow-xl blur-effect-theme
   return (
-    <div className=" sticky top-0 z-30 w-full shadow-xl blur-effect-theme">
+    <div className=" ">
       <div className="px-5 md:px-5 lg:max-w-[1230px] mx-auto">
         <div className="navbar py-5">
           <div className="navbar-start">

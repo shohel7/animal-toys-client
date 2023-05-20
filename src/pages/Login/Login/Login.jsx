@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
@@ -10,8 +10,8 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
-  // const location = useLocation();
-  // const from = location.state?.from?.pathname || "/";
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const {
     register,
@@ -33,7 +33,7 @@ const Login = () => {
         console.log(loggedInUser);
         setSuccess("User loggedIn successfully");
         event.target.reset();
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
