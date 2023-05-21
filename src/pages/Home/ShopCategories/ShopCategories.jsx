@@ -69,7 +69,7 @@ const ShopCategories = () => {
       <div>
         <Tabs
           id="controlled-tabs"
-          selectedTabClassName="bg-[#345A5B] text-white transition-all duration-200 ease-in-out"
+          selectedTabClassName="bg-cyan-800 text-white transition-all duration-200 ease-in-out"
         >
           <TabList className="flex justify-center gap-3 md:gap-5 items-center font-playFair pt-10 pb-14">
             <Tab className="bg-[#F29D7E] text-white py-3 px-10 rounded-md text-base md:text-lg font-semibold border cursor-pointer">
