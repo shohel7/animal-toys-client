@@ -36,7 +36,7 @@ const AddToys = () => {
     };
     // console.log(price);
 
-    fetch("http://localhost:5000/toys", {
+    fetch("https://n-chi-woad.vercel.app/toys", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(addedToy),

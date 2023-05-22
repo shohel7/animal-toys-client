@@ -18,7 +18,7 @@ const MyToys = () => {
   useTitle("My Toys");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys?sellerEmail=${user?.email}`, {
+    fetch(`https://n-chi-woad.vercel.app/myToys?sellerEmail=${user?.email}`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -28,7 +28,7 @@ const MyToys = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myAllToys?sort=${selected}`, {
+    fetch(`https://n-chi-woad.vercel.app/myAllToys?sort=${selected}`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -51,7 +51,7 @@ const MyToys = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`http://localhost:5000/myToys/${id}`, {
+        fetch(`https://n-chi-woad.vercel.app/myToys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

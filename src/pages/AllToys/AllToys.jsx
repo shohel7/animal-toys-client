@@ -10,7 +10,7 @@ const AllToys = () => {
 
   const handleSearch = () => {
     console.log(searchText);
-    fetch(`http://localhost:5000/searchToyName/${searchText}`)
+    fetch(`https://n-chi-woad.vercel.app/searchToyName/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setSearchToyName(data);

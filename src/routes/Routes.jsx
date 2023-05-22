@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: "allToys",
         element: <AllToys />,
-        loader: () => fetch("http://localhost:5000/allToys"),
+        loader: () => fetch("https://n-chi-woad.vercel.app/allToys"),
       },
       {
         path: "toy/:id",
@@ -35,13 +35,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allToys/${params.id}`),
+          fetch(`https://n-chi-woad.vercel.app/allToys/${params.id}`),
       },
       {
         path: "updatedToys/:id",
         element: <UpdatedToys />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allToys/${params.id}`),
+          fetch(`https://n-chi-woad.vercel.app/allToys/${params.id}`),
       },
       {
         path: "myToys",

@@ -15,7 +15,7 @@ const ShopCategories = () => {
   const [teddyCategory, setTeddyCategory] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/subCategory?subCategory=dog`)
+    fetch(`https://n-chi-woad.vercel.app/subCategory?subCategory=dog`)
       .then((res) => res.json())
       .then((data) => {
         setDogCategory(data);
@@ -23,7 +23,7 @@ const ShopCategories = () => {
   }, [dogCategory]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/subCategory?subCategory=cat`)
+    fetch(`https://n-chi-woad.vercel.app/subCategory?subCategory=cat`)
       .then((res) => res.json())
       .then((data) => {
         setCatCategory(data);
@@ -31,7 +31,7 @@ const ShopCategories = () => {
   }, [catCategory]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/subCategory?subCategory=teddyBear`)
+    fetch(`https://n-chi-woad.vercel.app/subCategory?subCategory=teddyBear`)
       .then((res) => res.json())
       .then((data) => {
         setTeddyCategory(data);
