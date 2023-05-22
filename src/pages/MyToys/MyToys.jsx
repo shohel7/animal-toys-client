@@ -3,10 +3,19 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
+
+const options = [
+  { value: "asc", name: "Price Ascending" },
+  { value: "desc", name: "Price-Descending" },
+];
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const [selected, setSelected] = useState(options[0].value);
+  console.log(selected);
+  useTitle("My Toys");
 
   useEffect(() => {
     fetch(`http://localhost:5000/myToys?sellerEmail=${user?.email}`, {
@@ -17,6 +26,17 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/myAllToys?sort=${selected}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setMyToys(data);
+        console.log(data);
+      });
+  }, [selected]);
 
   const handleDeleteToy = (id) => {
     console.log(id);
@@ -49,7 +69,19 @@ const MyToys = () => {
   };
   return (
     <div className="px-5 md:px-5 lg:max-w-[1230px] mx-auto">
-      <div className="overflow-x-auto mt-8">
+      <div className="mt-10">
+        <h3>Short By</h3>
+        <select
+          selected={selected}
+          onChange={(e) => setSelected(e.target.value)}
+          className="select w-full max-w-xs bg-slate-100"
+        >
+          {options.map((option) => (
+            <option value={option.value}>{option.name}</option>
+          ))}
+        </select>
+      </div>
+      <div className="overflow-x-auto mt-4">
         <table className="table w-full">
           {/* head */}
           <thead>

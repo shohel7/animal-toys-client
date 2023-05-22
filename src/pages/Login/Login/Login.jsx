@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
@@ -65,6 +66,8 @@ const Login = () => {
       })
       .catch((error) => console.log(error.message));
   };
+
+  useTitle("Login");
 
   return (
     <div>

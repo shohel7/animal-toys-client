@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const AddToys = () => {
+  useTitle("Add Toys");
   const { user } = useContext(AuthContext);
   const {
     register,
@@ -11,13 +13,33 @@ const AddToys = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = (data, event) => {
+    const toyName = data.toyName;
+    const sellerName = data.sellerName;
+    const sellerEmail = data.sellerEmail;
+    const subCategory = data.subCategory;
+    const price = parseInt(data.price);
+    const rating = data.rating;
+    const availableQuantity = data.availableQuantity;
+    const imageUrl = data.imageUrl;
+    const description = data.description;
+    const addedToy = {
+      toyName,
+      sellerName,
+      sellerEmail,
+      subCategory,
+      price,
+      rating,
+      availableQuantity,
+      imageUrl,
+      description,
+    };
+    // console.log(price);
 
     fetch("http://localhost:5000/toys", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(addedToy),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -30,6 +52,7 @@ const AddToys = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          event.target.reset();
         }
       });
   };

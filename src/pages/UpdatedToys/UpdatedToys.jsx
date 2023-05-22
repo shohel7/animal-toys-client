@@ -3,10 +3,13 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import useTitle from "../../hooks/useTitle";
 
 const UpdatedToys = () => {
   const { _id, toyName, price, availableQuantity, subCategory, description } =
     useLoaderData();
+
+  useTitle("Update toy");
 
   const {
     register,

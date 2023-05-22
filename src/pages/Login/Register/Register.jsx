@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const Register = () => {
   const { googleSignIn, githubSignIn, createUser, updateUserProfile, logOut } =
@@ -74,6 +75,8 @@ const Register = () => {
       })
       .catch((error) => console.log(error.message));
   };
+
+  useTitle("Register page");
 
   return (
     <div>

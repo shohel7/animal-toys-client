@@ -4,10 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
-import slider1 from "../../../assets/images/hero-1.jpg";
-import slider2 from "../../../assets/images/hero-2.jpg";
-import slider3 from "../../../assets/images/hero-3.jpg";
-
 const Banner = () => {
   return (
     <div>
@@ -35,7 +31,7 @@ const Banner = () => {
         className="mySwiper md:h-screen"
       >
         <SwiperSlide className="relative">
-          <img src={slider1} alt="slider-image" />
+          <img src="https://i.ibb.co/Gn30wRd/hero-1.jpg" alt="slider-image" />
           <div className="absolute top-10 md:top-24 left-14 md:left-24 font-playFair">
             <p className="text-white md:font-bold mb-2 md:mb-4 font-sans">
               A BEAUTIFUL PET SHOP
@@ -55,7 +51,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative">
-          <img src={slider2} alt="slider-image" />
+          <img src="https://i.ibb.co/vHP5YMz/hero-2.jpg" alt="slider-image" />
           <div className="absolute top-10 md:top-24 left-14 md:left-24 font-playFair">
             <p className="text-white md:font-bold mb-2 md:mb-4 font-sans">
               A BEAUTIFUL PET SHOP
@@ -75,7 +71,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative">
-          <img src={slider3} alt="slider-image" />
+          <img src="https://i.ibb.co/9pS5zJp/hero-3.jpg" alt="slider-image" />
           <div className="absolute top-10 md:top-24 left-14 md:left-24 font-playFair">
             <p className="text-white md:font-bold mb-2 md:mb-4 font-sans">
               A BEAUTIFUL PET SHOP

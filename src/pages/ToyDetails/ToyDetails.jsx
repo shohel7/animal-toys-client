@@ -2,6 +2,7 @@ import React from "react";
 import { FaArrowLeft, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
   const {
@@ -15,6 +16,8 @@ const ToyDetails = () => {
     imageUrl,
     description,
   } = useLoaderData();
+
+  useTitle("Toy details");
   return (
     <div className="px-5 md:px-5 lg:max-w-[1230px] mx-auto mt-10">
       <div>

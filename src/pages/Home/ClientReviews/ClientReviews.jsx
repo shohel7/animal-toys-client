@@ -3,7 +3,6 @@ import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-import testimonialImg from "../../../assets/images/testimonial-image.png";
 import { FaQuoteRight } from "react-icons/fa";
 
 const ClientReviews = () => {
@@ -46,7 +45,7 @@ const ClientReviews = () => {
         <div>
           <img
             className="md:max-w-lg"
-            src={testimonialImg}
+            src="https://i.ibb.co/F7t2ZD8/testimonial-image.png"
             alt="testimonial-image"
           />
         </div>

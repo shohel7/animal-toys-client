@@ -1,11 +1,4 @@
 import React from "react";
-import galleryImg1 from "../../../assets/images/gallery/parrot-1.jpg";
-import galleryImg2 from "../../../assets/images/gallery/cat.jpg";
-import galleryImg3 from "../../../assets/images/gallery/teddy.jpg";
-import galleryImg4 from "../../../assets/images/gallery/dog.jpg";
-import galleryImg5 from "../../../assets/images/gallery/Squirrel.jpg";
-import galleryImg6 from "../../../assets/images/gallery/teddy-1.jpg";
-import galleryImg7 from "../../../assets/images/gallery/hors.jpg";
 
 const ToysGallery = () => {
   return (
@@ -32,7 +25,7 @@ const ToysGallery = () => {
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src={galleryImg1}
+                src="https://i.ibb.co/LkHjf9f/parrot-1.jpg"
               />
             </div>
             <div
@@ -43,7 +36,7 @@ const ToysGallery = () => {
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src={galleryImg2}
+                src="https://i.ibb.co/Z1s9f7K/cat.jpg"
               />
             </div>
             <div
@@ -54,7 +47,7 @@ const ToysGallery = () => {
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src={galleryImg4}
+                src="https://i.ibb.co/5YFyK3H/dog.jpg"
               />
             </div>
           </div>
@@ -67,7 +60,7 @@ const ToysGallery = () => {
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src={galleryImg5}
+                src="https://i.ibb.co/yFDjB6S/Squirrel.jpg"
               />
             </div>
             <div
@@ -78,7 +71,7 @@ const ToysGallery = () => {
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src={galleryImg7}
+                src="https://i.ibb.co/71MW8Mw/hors.jpg"
               />
             </div>
             <div
@@ -89,7 +82,7 @@ const ToysGallery = () => {
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src={galleryImg3}
+                src="https://i.ibb.co/jD4z7b6/teddy.jpg"
               />
             </div>
           </div>
