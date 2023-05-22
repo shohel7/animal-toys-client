@@ -34,7 +34,7 @@ const ClientReviews = () => {
     <div className="lg:w-full mx-auto">
       <div className="text-center mb-4">
         <h2 className="text-2xl md:text-4xl font-playFair font-semibold text-[#345A5B]">
-          Shop By Categories
+          Client Review
         </h2>
         <p className="text-sm md:text-base mt-5 md:w-1/2 mx-auto font-sans">
           TOYS Gallery is a Contemporary Art Gallery based in Kyiv, Ukraine.
